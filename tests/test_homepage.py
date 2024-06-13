@@ -2,14 +2,14 @@ import os
 from selene import browser
 import allure
 from models.login_page import LoginPageMethods
-from dotenv import load_dotenv
+
 
 auth = LoginPageMethods()
 
 
 
 
-def test_login_on_site():
+def test_login_on_site(setup_browser):
     login = os.getenv("GDESLON_LOGIN")
     password = os.getenv("GDESLON_PASSWORD")
 

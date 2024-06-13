@@ -16,4 +16,4 @@ def test_search_offer(setup_browser):
         landing.find_offers('aliexpress')
 
     with allure.step('Check results'):
-        landing.checking_results('AliExpress RU&CIS')
+        landing.checking_results('AliExpress')

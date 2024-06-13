@@ -1,10 +1,10 @@
 import os
 from selene import browser
 import allure
-from models.home_page import LoginMethods
+from models.login_page import LoginPageMethods
 from dotenv import load_dotenv
 
-auth = LoginMethods()
+auth = LoginPageMethods()
 
 
 

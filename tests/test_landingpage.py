@@ -7,7 +7,7 @@ from models.landing_page import LandingPageMethods
 landing = LandingPageMethods()
 
 
-def test_search_offer():
+def test_search_offer(setup_browser):
 
     with allure.step('Open offers tab'):
         browser.open('/offers')

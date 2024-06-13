@@ -9,7 +9,7 @@ auth = LoginPageMethods()
 
 
 
-def test_login_on_site(setup_browser):
+def test_login_on_site():
     login = os.getenv("GDESLON_LOGIN")
     password = os.getenv("GDESLON_PASSWORD")
 
@@ -27,3 +27,8 @@ def test_login_on_site(setup_browser):
 
     with allure.step('Cheking login'):
         auth.check_authorization()
+
+
+
+
+

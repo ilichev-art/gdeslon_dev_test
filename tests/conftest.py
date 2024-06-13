@@ -1,37 +1,40 @@
-# import os
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
-# from selene import browser
-# from dotenv import load_dotenv
-# import pytest
-#
-#
-# # Local settings
-#
-# @pytest.fixture(scope="session", autouse=True)
-# def load_env():
-#     load_dotenv()
-#
-# @pytest.fixture(scope='session', autouse=True)
-# def browser_management():
-#     browser.config.base_url = 'https://gdeslon.kokoc.com'
-#     browser.config.timeout = 5
-#     browser.config.browser_name = 'chrome'
-#     browser.config.window_width = 1900
-#     browser.config.window_height = 1080
-#
-#     driver_options = webdriver.ChromeOptions()
-#     browser.config.driver_options = driver_options
-#     # driver_options.add_argument('--headless')
-#     browser.config.hold_browser_open = True
-#
-#
-#     yield
-#
-#     browser.quit()
+'''
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selene import browser
+from dotenv import load_dotenv
+import pytest
 
 
-# # Remote settings
+# Local settings
+
+@pytest.fixture(scope="session", autouse=True)
+def load_env():
+    load_dotenv()
+
+@pytest.fixture(scope='session', autouse=True)
+def browser_management():
+    browser.config.base_url = 'https://gdeslon.kokoc.com'
+    browser.config.timeout = 5
+    browser.config.browser_name = 'chrome'
+    browser.config.window_width = 1900
+    browser.config.window_height = 1080
+
+    driver_options = webdriver.ChromeOptions()
+    browser.config.driver_options = driver_options
+    # driver_options.add_argument('--headless')
+    browser.config.hold_browser_open = True
+
+
+    yield
+
+    browser.quit()
+'''
+
+
+#  Remote settings
+
 import pytest
 from dotenv import load_dotenv
 import os
@@ -87,4 +90,5 @@ def setup_browser(request):
     attach.add_video(browser)
 
     browser.quit()
+
 

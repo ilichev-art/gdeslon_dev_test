@@ -8,4 +8,4 @@ class LandingPageMethods:
         browser.element('#id_search').send_keys(value).press_enter()
 
     def checking_results(self, value):
-        assert browser.element('.white-bg').perform(command.js.scroll_into_view).should(have.value(value))
+        assert browser.element('.white-bg').perform(command.js.scroll_into_view).should(have.text(value))

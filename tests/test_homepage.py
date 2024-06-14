@@ -23,12 +23,12 @@ def test_login_on_site(setup_browser):
         browser.open('/')
 
     with allure.step('Login'):
-        auth.login()
-        auth.fill_login(login)
-        auth.fill_password(password)
+        auth.login_button()
+        auth.fill_user_login(login)
+        auth.fill_user_password(password)
 
     with allure.step('Click enter'):
-        auth.click_button()
+        auth.click_enter_button()
 
     with allure.step('Cheking login'):
         auth.check_authorization()

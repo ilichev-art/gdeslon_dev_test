@@ -1,4 +1,6 @@
 '''
+# Local settings
+
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -7,7 +9,6 @@ from dotenv import load_dotenv
 import pytest
 
 
-# Local settings
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():

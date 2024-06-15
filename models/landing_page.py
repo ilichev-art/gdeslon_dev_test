@@ -1,5 +1,5 @@
-from selene import browser, by, command
-from selene.support.conditions import have, be
+from selene import browser, command
+from selene.support.conditions import have
 
 class LandingPageMethods:
 

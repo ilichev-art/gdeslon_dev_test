@@ -1,5 +1,4 @@
 import os
-
 from allure_commons.types import Severity
 from selene import browser
 import allure

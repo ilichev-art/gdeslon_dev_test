@@ -1,9 +1,7 @@
 '''
 # Local settings
 
-import os
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selene import browser
 from dotenv import load_dotenv
 import pytest
@@ -21,6 +19,7 @@ def browser_management():
     browser.config.browser_name = 'chrome'
     browser.config.window_width = 1900
     browser.config.window_height = 1080
+    browser.config.hold_driver_at_exit = False
 
     driver_options = webdriver.ChromeOptions()
     browser.config.driver_options = driver_options
@@ -91,5 +90,6 @@ def setup_browser(request):
     attach.add_video(browser)
 
     browser.quit()
+
 
 

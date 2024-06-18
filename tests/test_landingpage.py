@@ -1,7 +1,7 @@
 from allure_commons.types import Severity
-from selene import browser
+from selene import browser, have
 import allure
-from models.landing_page import LandingPageMethods
+from models.landingpage import LandingPageMethods
 
 
 landing = LandingPageMethods()
@@ -13,13 +13,27 @@ landing = LandingPageMethods()
 @allure.feature(f'Работа поисковой строки в разделе Офферы')
 
 
-def test_search_offer(setup_browser):
+def test_search_offer():
+
+    with allure.step('Open site'):
+        browser.open('/')
 
     with allure.step('Open offers tab'):
-        browser.open('/offers')
+        landing.open_offers_tab()
 
     with allure.step('Find offers'):
         landing.find_offers('aliexpress')
 
     with allure.step('Check results'):
         landing.checking_results('AliExpress')
+
+def test_services_title():
+
+    with allure.step('Open site'):
+        browser.open('/')
+
+    with allure.step('Open services tab'):
+        landing.open_services_tab()
+
+    with allure.step('Cheking title'):
+        landing.checking_title('Услуги')

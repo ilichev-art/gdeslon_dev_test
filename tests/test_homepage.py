@@ -2,7 +2,7 @@ import os
 from allure_commons.types import Severity
 from selene import browser
 import allure
-from models.login_page import LoginPageMethods
+from models.homepage import LoginPageMethods
 
 
 auth = LoginPageMethods()
@@ -13,7 +13,7 @@ auth = LoginPageMethods()
 @allure.feature(f'Авторизация пользователя на сайте')
 
 
-def test_login_on_site(setup_browser):
+def test_login_on_site():
     login = os.getenv("GDESLON_LOGIN")
     password = os.getenv("GDESLON_PASSWORD")
 

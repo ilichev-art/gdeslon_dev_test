@@ -11,11 +11,15 @@ class LoginPageMethods:
 
     def login_button(self):
         self.login.click()
+
     def fill_user_login(self, value):
         self.fill_login.type(value)
+
     def fill_user_password(self, value):
         self.fill_password.type(value)
+
     def click_enter_button(self):
         self.click_enter.perform(command.js.scroll_into_view).click()
+
     def check_authorization(self):
         assert browser.element('.short').should(be.visible)

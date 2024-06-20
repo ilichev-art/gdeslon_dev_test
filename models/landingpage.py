@@ -21,7 +21,7 @@ class LandingPageMethods:
 
     def checking_results(self, value):
         assert self.results.perform(command.js.scroll_into_view).should(have.text(value))
-
+        
     def checking_title(self, value):
         self.title.should(have.text(value))
 

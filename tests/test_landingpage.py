@@ -13,7 +13,7 @@ landing = LandingPageMethods()
 @allure.feature(f'Работа поисковой строки в разделе Офферы')
 
 
-def test_search_offer():
+def test_search_offer(setup_browser):
 
     with allure.step('Open site'):
         browser.open('/')
@@ -27,7 +27,7 @@ def test_search_offer():
     with allure.step('Check results'):
         landing.checking_results('AliExpress')
 
-def test_services_title():
+def test_services_title(setup_browser):
 
     with allure.step('Open site'):
         browser.open('/')

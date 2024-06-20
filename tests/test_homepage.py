@@ -13,7 +13,7 @@ auth = LoginPageMethods()
 @allure.feature(f'Авторизация пользователя на сайте')
 
 
-def test_login_on_site():
+def test_login_on_site(setup_browser):
     login = os.getenv("GDESLON_LOGIN")
     password = os.getenv("GDESLON_PASSWORD")
 

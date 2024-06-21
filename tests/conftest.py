@@ -56,7 +56,7 @@ def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def setup_browser(request):
     browser_version = request.config.getoption("--browser_version")
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
@@ -78,7 +78,7 @@ def setup_browser(request):
     )
     browser.config.driver = driver
 
-    browser.config.base_url = "https://gdeslon.kokoc.com"
+    browser.config.base_url = 'https://gdeslon.kokoc.com'
     browser.config.window_width = int(os.getenv("selene.window_width", 1920))
     browser.config.window_height = int(os.getenv("selene.window_height", 1080))
 

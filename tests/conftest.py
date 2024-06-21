@@ -67,6 +67,10 @@ def setup_browser(request):
         "selenoid:options": {"enableVideo": True, "enableVNC": True}
     }
 
+    browser.config.base_url = 'https://gdeslon.kokoc.com'
+    browser.config.window_width = int(os.getenv("selene.window_width", 1920))
+    browser.config.window_height = int(os.getenv("selene.window_height", 1080))
+
     selenoid_login = os.getenv("SELENOID_LOGIN")
     selenoid_pass = os.getenv("SELENOID_PASS")
     selenoid_url = os.getenv("SELENOID_URL")
@@ -76,11 +80,8 @@ def setup_browser(request):
         command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
         options=options,
     )
-    browser.config.driver = driver
 
-    browser.config.base_url = 'https://gdeslon.kokoc.com'
-    browser.config.window_width = int(os.getenv("selene.window_width", 1920))
-    browser.config.window_height = int(os.getenv("selene.window_height", 1080))
+    browser.config.driver = driver
 
     yield browser
 

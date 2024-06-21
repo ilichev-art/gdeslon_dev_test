@@ -1,6 +1,5 @@
 import os
 from allure_commons.types import Severity
-from selene import browser
 import allure
 from models.homepage import LoginPageMethods
 
@@ -19,7 +18,7 @@ def test_login_on_site(setup_browser):
 
 
     with allure.step("Open site"):
-        browser.open('/')
+        auth.open_landingpage()
 
     with allure.step('Login'):
         auth.login_button()

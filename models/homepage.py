@@ -9,6 +9,10 @@ class LoginPageMethods:
         self.fill_password = browser.element('#id_password')
         self.click_enter = browser.element('.btn')
 
+
+    def open_landingpage(self):
+        browser.open('/')
+
     def login_button(self):
         self.login.click()
 

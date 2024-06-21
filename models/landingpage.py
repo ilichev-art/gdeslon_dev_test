@@ -10,6 +10,9 @@ class LandingPageMethods:
         self.results = browser.element('.white-bg')
         self.title = browser.element('[class="title"]')
 
+    def open_landingpage(self):
+        browser.open('/')
+
     def open_offers_tab(self):
         self.open_offers.click()
 

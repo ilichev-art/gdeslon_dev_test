@@ -1,5 +1,4 @@
 from allure_commons.types import Severity
-from selene import browser, have
 import allure
 from models.landingpage import LandingPageMethods
 
@@ -16,7 +15,7 @@ landing = LandingPageMethods()
 def test_search_offer(setup_browser):
 
     with allure.step('Open site'):
-        browser.open('/')
+        landing.open_landingpage()
 
     with allure.step('Open offers tab'):
         landing.open_offers_tab()
@@ -27,10 +26,17 @@ def test_search_offer(setup_browser):
     with allure.step('Check results'):
         landing.checking_results('AliExpress')
 
+
+@allure.title('Раздел Услуги')
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'Artem')
+@allure.feature(f'Работа отображения текста в разделе Услуги')
+
 def test_services_title(setup_browser):
 
     with allure.step('Open site'):
-        browser.open('/')
+        landing.open_landingpage()
 
     with allure.step('Open services tab'):
         landing.open_services_tab()

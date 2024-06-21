@@ -78,8 +78,7 @@ def setup_browser(request):
     )
 
     browser.config.driver = driver
-    driver.get('https://gdeslon.kokoc.com')
-    #browser.config.base_url = 'https://gdeslon.kokoc.com'
+    browser.config.base_url = 'https://gdeslon.kokoc.com'
     browser.config.window_width = int(os.getenv("selene.window_width", 1920))
     browser.config.window_height = int(os.getenv("selene.window_height", 1080))
 

@@ -1,29 +1,27 @@
 from allure_commons.types import Severity
 import allure
+from selene.support.shared import browser
 from models.landingpage import LandingPageMethods
 
-
 landing = LandingPageMethods()
+
 
 @allure.title('Поиск оффера')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 @allure.label('owner', 'Artem')
 @allure.feature(f'Работа поисковой строки в разделе Офферы')
+def test_search_offer():
+    with allure.step('Открыть сайт'):
+        browser.open('/')
 
-
-def test_search_offer(setup_browser):
-
-    with allure.step('Open site'):
-        landing.open_landingpage()
-
-    with allure.step('Open offers tab'):
+    with allure.step('Перейти во вкладку Офферы'):
         landing.open_offers_tab()
 
-    with allure.step('Find offers'):
+    with allure.step('Найти оффер'):
         landing.find_offers('aliexpress')
 
-    with allure.step('Check results'):
+    with allure.step('Проверить результат'):
         landing.checking_results('AliExpress')
 
 
@@ -32,14 +30,12 @@ def test_search_offer(setup_browser):
 @allure.severity(Severity.NORMAL)
 @allure.label('owner', 'Artem')
 @allure.feature(f'Работа отображения текста в разделе Услуги')
+def test_services_title():
+    with allure.step('Открыть сайт'):
+        browser.open('/')
 
-def test_services_title(setup_browser):
-
-    with allure.step('Open site'):
-        landing.open_landingpage()
-
-    with allure.step('Open services tab'):
+    with allure.step('Открыть кладку Услуги'):
         landing.open_services_tab()
 
-    with allure.step('Cheking title'):
+    with allure.step('Проверить заголовок'):
         landing.checking_title('Услуги')

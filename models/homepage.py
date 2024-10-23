@@ -1,6 +1,7 @@
 from selene import browser, command
 from selene.support.conditions import be
 
+
 class LoginPageMethods:
 
     def __init__(self):
@@ -8,10 +9,6 @@ class LoginPageMethods:
         self.fill_login = browser.element('#id_username')
         self.fill_password = browser.element('#id_password')
         self.click_enter = browser.element('.btn')
-
-
-    def open_landingpage(self):
-        browser.open('/')
 
     def login_button(self):
         self.login.click()

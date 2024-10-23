@@ -1,6 +1,7 @@
 from selene import browser, command
 from selene.support.conditions import have
 
+
 class LandingPageMethods:
 
     def __init__(self):
@@ -9,9 +10,6 @@ class LandingPageMethods:
         self.offers = browser.element('#id_search')
         self.results = browser.element('.white-bg')
         self.title = browser.element('[class="title"]')
-
-    def open_landingpage(self):
-        browser.open('/')
 
     def open_offers_tab(self):
         self.open_offers.click()
@@ -24,9 +22,6 @@ class LandingPageMethods:
 
     def checking_results(self, value):
         assert self.results.perform(command.js.scroll_into_view).should(have.text(value))
-        
+
     def checking_title(self, value):
         self.title.should(have.text(value))
-
-
-

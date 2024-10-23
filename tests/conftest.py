@@ -1,4 +1,4 @@
-# Local settings
+"""Local settings"""
 
 from selenium import webdriver
 from selene import browser
@@ -29,8 +29,8 @@ def browser_management():
 
     browser.quit()
 
-#  Remote settings
-
+# """Remote settings"""
+#
 # import pytest
 # from dotenv import load_dotenv
 # import os
@@ -39,15 +39,15 @@ def browser_management():
 # from selenium.webdriver.chrome.options import Options
 # from utils import attach
 #
-#
-#
-#
 # DEFAULT_BROWSER_VERSION = '122.0'
+#
+#
 # def pytest_addoption(parser):
 #     parser.addoption(
 #         "--browser_version",
 #         default="122.0"
 #     )
+#
 #
 # @pytest.fixture(scope="session", autouse=True)
 # def load_env():
@@ -81,7 +81,6 @@ def browser_management():
 #     browser.config.window_width = int(os.getenv("selene.window_width", 1920))
 #     browser.config.window_height = int(os.getenv("selene.window_height", 1080))
 #
-#
 #     yield browser
 #
 #     attach.add_screenshot(browser)
@@ -90,4 +89,3 @@ def browser_management():
 #     attach.add_video(browser)
 #
 #     browser.quit()
-#

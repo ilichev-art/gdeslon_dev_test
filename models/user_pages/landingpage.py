@@ -2,7 +2,7 @@ from selene import browser, command
 from selene.support.conditions import have
 
 
-class LandingPageMethods:
+class LandingPage:
 
     def __init__(self):
         self.open_offers = browser.element('[class="nav-link"][href="/offers/"]')

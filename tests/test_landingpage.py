@@ -1,9 +1,9 @@
 from allure_commons.types import Severity
 import allure
 from selene.support.shared import browser
-from models.landingpage import LandingPageMethods
+from models.user_pages.landingpage import LandingPage
 
-landing = LandingPageMethods()
+landing = LandingPage()
 
 
 @allure.title('Поиск оффера')

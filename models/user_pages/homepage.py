@@ -2,7 +2,7 @@ from selene import browser, command
 from selene.support.conditions import be
 
 
-class LoginPageMethods:
+class LoginPage:
 
     def __init__(self):
         self.login = browser.element('#login')

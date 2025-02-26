@@ -180,3 +180,53 @@ class SessionController:
         except Exception as e:
             log.error(f'Error removing user sessions from the browser: {e}')
             raise
+
+
+
+'''User session without threads'''
+from _pytest.fixtures import FixtureRequest
+from aqa_ui.selen.web_browser.web_browser import WebBrowser
+from aqa_ui.utils.kokoc_id.kokoc_id_session import KokocIdApiSessionController
+from aqa_utils.log_util import log
+
+from configurations.settings import ROOT_URL
+
+XG_TOKEN_URL = f'{ROOT_URL}/api/token/'
+
+
+class SessionController(KokocIdApiSessionController):
+
+    @classmethod
+    def get_xg_token(cls) -> str:
+        response = cls.session().post(
+            XG_TOKEN_URL,
+            headers={"Accept": "application/json", "Content-Type": "application/json"},
+            json={"jwt_kokoc_id": cls.kid_token()}
+        )
+        return cls._parse_response(response, key='access')
+
+    @classmethod
+    def create_user_session(cls, user_email: str, user_phone: str, user_access_code: str, request: FixtureRequest):
+        log.debug(f'Creating user browser session for user {user_email} ...')
+        cls.create_user_api_session(user_email, user_phone, user_access_code, request)
+        try:
+            WebBrowser.navigate(cls.get_kid_session_endpoint())
+            cls.session().cookies.update({
+                'sessionid': WebBrowser.get_cookie('sessionid').get('value'),
+                'csrftoken': WebBrowser.get_cookie('csrftoken').get('value')
+            })
+            log.debug('User browser session created: OK')
+        except Exception as e:
+            log.error(f'Error creating browser session: {e}')
+            raise
+
+    @classmethod
+    def remove_user_session(cls):
+        log.debug(f'Removing user session from the browser {cls.user_email()} ...')
+        try:
+            WebBrowser.delete_all_cookies().refresh()
+            log.debug('User sessions removed from the browser: OK')
+        except Exception as e:
+            log.error(f'Error removing user sessions from the browser: {e}')
+            raise
+
